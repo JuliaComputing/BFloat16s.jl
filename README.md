@@ -57,3 +57,17 @@ julia> Float64.(A.storage)^2
 Note that the low precision result differs from (is less precise than) the
 result computed in Float32 arithmetic (which matches the result in Float64
 precision).
+
+# Performance
+
+`BFloat16` imposes only a x2 performance sacrifice due to cheap conversions to and from `Float32`.
+
+```julia
+julia> using BFloat16s, BenchmarkTools
+julia> A = rand(Float32,1000,1000);
+julia> B = BFloat16.(A);
+julia> @btime +($A,$A);
+  310.638 μs (2 allocations: 3.81 MiB)
+julia> @btime +($B,$B);
+  567.917 μs (2 allocations: 1.91 MiB)
+  ```
