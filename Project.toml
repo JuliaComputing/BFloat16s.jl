@@ -1,7 +1,7 @@
 name = "BFloat16s"
 uuid = "ab4f0b2a-ad5b-11e8-123f-65d77653426b"
 authors = ["Keno Fischer <keno@alumni.harvard.edu>"]
-version = "0.1.0"
+version = "0.2.0"
 
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
